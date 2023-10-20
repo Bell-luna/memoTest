@@ -42,3 +42,16 @@ body {
 main {
   padding: 1rem;
 }
+
+.memotest-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 24px;
+}
+
+.memotest-item {
+  cursor: pointer;
+  padding: 12px;
+  border: 1px solid #666;
+  border-radius: 12px;
+}

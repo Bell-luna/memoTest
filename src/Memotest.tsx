@@ -13,8 +13,8 @@ const images = [
   "https://icongr.am/devicon/postgresql-original.svg?size=128&color=currentColor",
 ]
   .flatMap((image) => [`a|${image}`, `b|${image}`])
-  .sort(() => Math.random() - 0.5); // 0.5 por si el sort tiene que ser +o- //
-// [1,2,3] => [[1,2], [2,4],[3,6]] nos quedaa el result: [1,2,2,4,3,6] aplana el codigo
+  .sort(() => Math.random() - 0.5);
+
 export default function Memotest() {
   const [guessed, setGuessed] = useState<string[]>([]);
   const [selected, setSelected] = useState<string[]>([]);
@@ -34,26 +34,16 @@ export default function Memotest() {
       location.reload();
     }
   });
+
   return (
-    <ul
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(128px, 1fr))",
-        gap: 24,
-      }}
-    >
+    <div className="memotest-list">
       {images.map((image) => {
         const [, url] = image.split("|");
 
         return (
-          <li
+          <div
             key={image}
-            style={{
-              cursor: "pointer",
-              padding: 12,
-              border: "1px solid #666",
-              borderRadius: 12,
-            }}
+            className="memotest-item"
             onClick={() =>
               selected.length < 2 &&
               setSelected((selected) => selected.concat(image))
@@ -68,9 +58,9 @@ export default function Memotest() {
                 src="https://icongr.am/clarity/search.svg?size=128&color=currentColor"
               />
             )}
-          </li>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 }
