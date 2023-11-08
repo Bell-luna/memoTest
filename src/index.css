@@ -20,6 +20,11 @@
   padding: 0;
 }
 
+input,
+button {
+  font-size: 32px;
+}
+
 li {
   list-style-type: none;
 }
@@ -54,4 +59,15 @@ main {
   padding: 12px;
   border: 1px solid #666;
   border-radius: 12px;
+}
+
+.myDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.myH1 {
+  font-size: 48px;
 }
